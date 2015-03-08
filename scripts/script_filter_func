@@ -1,0 +1,8 @@
+register '/home/hadoop/fl.jar';
+DEFINE myFilter com.cloudwick.hadoop.pig.Filter();
+
+
+A = load '../input/input1' as (f1:int, f2, f3);
+B = FILTER A BY myFilter(f1);
+store B into '../output/output2';
+
